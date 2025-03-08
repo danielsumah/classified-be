@@ -5,6 +5,7 @@ import { TypeOrmModule } from './datasource/typeorm.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { FileModule } from './file/file.module';
 
 @Module({
   imports: [
@@ -19,7 +20,9 @@ import { MongooseModule } from '@nestjs/mongoose';
       }),
     }),
     TypeOrmModule,
-    UsersModule],
+    UsersModule,
+    FileModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
