@@ -22,6 +22,8 @@ const logger = new Logger()
             database: configService.get<string>('DATABASE_NAME'),
             synchronize: configService.get<boolean>('DATABASE_SYNCHRONIZE'),
             entities: [`${__dirname}/../**/**.entity{.ts,.js}`],
+            migrations: [`${__dirname}/../migrations/**/*{.ts,.js}`],
+            migrationsTableName: 'migrations',
           });
           await dataSource.initialize(); // initialize the data source
           logger.log('\n\nDatabase connected successfully\n');
