@@ -24,6 +24,7 @@ const logger = new Logger()
             entities: [`${__dirname}/../**/**.entity{.ts,.js}`],
             migrations: [`${__dirname}/../migrations/**/*{.ts,.js}`],
             migrationsTableName: 'migrations',
+            ssl: configService.get('NODE_ENV') == 'production' ? true : false,
           });
           await dataSource.initialize(); // initialize the data source
           logger.log('\n\nDatabase connected successfully\n');
